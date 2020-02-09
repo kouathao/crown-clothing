@@ -12,6 +12,35 @@ const config = {
   appId: "1:241118093012:web:48b2144b19a402a4e8e541",
   measurementId: "G-3YNTYKSS4S"
 };
+
+// allow us to that the user auth and store in side firestore
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) return;
+
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+
+  const snapShot = await userRef.get();
+
+  // store into db
+  if (!snapShot.exists) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData
+      });
+    } catch (error) {
+      console.log("Error creating users", error.message);
+    }
+  }
+  // stil want to user user referce code somewhere else that is why it is return
+  return userRef;
+};
+
 // initialize config
 firebase.initializeApp(config);
 
