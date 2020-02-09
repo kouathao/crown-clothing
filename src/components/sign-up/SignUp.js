@@ -22,7 +22,7 @@ class SignUp extends Component {
     event.preventDefault();
     const { displayName, email, password, confirmPassword } = this.state;
 
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       alert("passwords does not match");
       return;
     }
@@ -82,6 +82,7 @@ class SignUp extends Component {
             onChange={this.handleChange}
             label="Password"
             required
+            autoComplete="true"
           />
           <FormInput
             type="password"
@@ -90,6 +91,7 @@ class SignUp extends Component {
             onChange={this.handleChange}
             label="Confirm Password"
             required
+            autoComplete="true"
           />
           <CustomButton type="submit">SIGN UP</CustomButton>
         </form>

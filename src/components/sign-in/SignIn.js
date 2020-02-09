@@ -65,6 +65,7 @@ class SignIn extends Component {
             handleChange={this.handleChange}
             label="password"
             required
+            autoComplete="true"
           />
           <div className="buttons">
             <CustomButton type="submit">Sign In </CustomButton>
