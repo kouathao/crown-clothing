@@ -12,3 +12,12 @@
     justify-content: space-between;
   }
 }
+
+@media (max-width: 676px) {
+  .sign-in {
+    width: 100%;
+    .buttons {
+      flex-wrap: wrap;
+    }
+  }
+}

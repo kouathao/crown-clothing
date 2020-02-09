@@ -43,3 +43,9 @@
     }
   }
 }
+
+@media (max-width: 676px) {
+  .buttons > button {
+    margin-bottom: 20px;
+  }
+}
